@@ -10,7 +10,7 @@ public class Tarea12 {
         
         String dominio = "google.es";
         try {
-            Process p = Runtime.getRuntime().exec("ping " + dominio);
+            Process p = Runtime.getRuntime().exec("ping -c 10 " + dominio);
             BufferedReader bf = new BufferedReader(new InputStreamReader(p.getInputStream()));
 
             String linea;
