@@ -8,7 +8,7 @@ public class Tarea8Linux {
         String dominio = "google.es";
         
         try {
-            Process p = Runtime.getRuntime().exec("ping -c 10" + dominio);
+            Process p = Runtime.getRuntime().exec("ping -c 10 " + dominio);
             BufferedReader bf = new BufferedReader(new InputStreamReader(p.getInputStream()));
             
             String linea;
@@ -16,8 +16,8 @@ public class Tarea8Linux {
             while ((linea = bf.readLine()) != null) {
                 System.out.println(linea);
             }
-            p.destroy();
-        } catch (IOException e) {
+            p.waitFor();
+        } catch (IOException | InterruptedException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
